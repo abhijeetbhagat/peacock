@@ -1,0 +1,10 @@
+[package]
+name = "peacock"
+version = "0.1.0"
+authors = ["abhibhag"]
+
+[dependencies]
+glium = "*"
+
+[profile.release]
+debug=true
