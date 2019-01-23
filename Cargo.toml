@@ -5,6 +5,7 @@ authors = ["abhibhag"]
 
 [dependencies]
 glium = "*"
+gstreamer = "*"
 
 [profile.release]
 debug=true
