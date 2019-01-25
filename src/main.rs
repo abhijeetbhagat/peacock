@@ -19,6 +19,18 @@ fn tutorial_main() {
 
     // Wait until error or EOS
     let bus = pipeline.get_bus().unwrap();
+    loop {
+        let msg =  bus.timed_pop(gst::CLOCK_TIME_NONE).unwrap() ;
+        let view = msg.view();
+        use gst::message::MessageView;
+        match view {
+            MessageView::Eos(..) => break,
+            MessageView::Error(error) => {
+                break;
+            },
+            _ => () 
+        }
+    }
     /*for msg in bus.iter_timed(gst::CLOCK_TIME_NONE) {
         use gst::MessageView;
 
